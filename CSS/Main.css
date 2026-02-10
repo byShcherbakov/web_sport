@@ -1,0 +1,340 @@
+/*Подключение*/
+@import url(./fonts.css);
+@import url(./animations.css);
+@import url(./variables.css);
+
+/*сборс веб настроик*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    letter-spacing: -.011em;
+}
+
+html,body{
+    height: auto;
+}
+
+body{
+    background-color: var(--dark) ;
+    color: #fff;
+    font-family: Montserrat-s, sans-serif;/* шрифт*/
+    min-width: 320px; /* Мин размер для гаджета */
+
+
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 20px;
+  pointer-events: none;
+  z-index: 100;
+}
+
+.top-line {
+  display: flex;
+  gap: 50px;
+}
+
+.top-line__left {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+.top-line__left {
+  width: 20%;
+  display: flex;
+  align-items: center;
+}
+
+
+.top-line__center{
+    display: flex;
+    justify-content: center;
+    flex: 1 1 0%;
+}
+
+.top-line__right{
+    width: 20%;
+    display: flex;
+    gap:5px;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.top-mnu{
+    background-color: rgba(255,255,255,.05);
+    border-radius: var(--radius);
+    padding: 4px;
+
+    
+}
+
+.top-mnu ul {
+    display: flex;
+    gap: 2px;
+}
+
+.top-mnu a {
+    position: relative;
+    font-size: 16px;
+    line-height: 120%;
+    height: 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 17.5px;
+
+    border-radius: var(--radius);
+    min-width: 100px;
+}
+
+
+.top-mnu a::before{
+    content: '';
+    position: absolute; 
+    inset: 0;
+    background-color: rgba(255,255,255,.05);
+    transform: scale(.925);
+    transition: var(--transition);
+    opacity: 0;
+    border-radius: var(--radius);
+}
+
+.top-mnu a:hover::before{
+    opacity: 1;
+    transform: scale(1);/*увеличние элемента*/
+   
+}
+
+
+.top-mnu a::after{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-1);
+    background-clip:text ;
+    -webkit-text-fill-color: transparent;
+    content: attr(data-text);
+    opacity: 0;
+    transition:var(--transition);
+
+}
+
+.top-mnu a:hover::after{
+    opacity: .5;
+}
+
+.logo,.top-mnu , .mnu-button{
+    pointer-events: auto;
+}
+
+
+
+/*БутерБрод Menu*/
+
+.main-menu{
+    opacity: 0;
+    visibility: hidden; /*делает элемент невидимым*/
+    position: fixed;
+
+    /*Создание поля где содерж меню*/
+    top: 10px;
+    right: 10px;
+    bottom: 10px;
+    z-index: 7;
+    width: 815px;
+    overflow-y: auto;
+    background: rgba(255,255,255,.1);
+    backdrop-filter: blur(30px); /* Размытие*/
+    transform-origin:right top ;
+    border-radius: 10px;
+    pointer-events: auto;
+    transform: scale(0) translate(0,0) rotate(.001deg);   /* чтобы не было проблем в будущем с анимацией*/
+    transition: var(--transition-mnu);
+}
+
+/* появление меню */
+.main-menu.active {
+    transform: scale(1) translate(0,0) rotate(.001deg);
+    opacity: 1;
+    visibility: visible;
+}
+
+
+
+
+/* настройка внутри бутера 1 */
+.main-menu__inner {
+    padding: 76px 40px 80px;
+    display: flex;
+    gap: 50px;
+    max-height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* настройка внутри бутера 2 */
+.main-menu__inner li {
+    position: relative;  /* Расположение внутренних эл в нужном образе */
+
+}
+/* настройка внутри бутера 3 */
+.main-menu__inner li  a{
+    font-size: 60px;
+    font-weight: 300;
+    line-height: 143%;
+    display: block;
+    position: relative;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(255,255,255,.1) ; /*нижняя черта над выбором в бутере */
+
+}
+
+/* анимация  border-bottom под каталогом мелкает цветом --gradient-1*/
+.main-menu__inner a span{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 1px;
+    width: 100%;
+    transform-origin:right ;
+    transform: scaleX(0);
+    transition: transform .5s;
+    background: var(--gradient-1);
+    opacity: .3;
+}
+
+.main-menu__inner a:hover span{
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+/*текст градиент */
+.main-menu__inner a::after {
+    content:  attr(data-text);
+    position: absolute;
+    left: 0;
+    background: var(--gradient-1);
+    background-clip: text ;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    opacity: 0;
+    z-index: 1;
+    transition: var(--transition);
+}
+/*При навидении появляется у текста обводка градиент*/
+.main-menu__inner a:hover::after {
+    opacity: .5;
+}
+
+.mnu-button__menu{
+    width: 60px;
+    height: 60px;
+    background-color:rgba(255, 255, 255,.05);
+    border-radius: var(--radius);
+    border: none;/*убирает у кнопки белый на краях обводку*/
+    cursor: pointer;
+    z-index: 10;
+
+    /* настройка полосы этой в кнопке*/
+    position: relative;/* опеределить позецианирование */
+    display: flex; /* доступ свободный*/
+    align-items: center;/* центр по вертикале */
+    justify-content: center;/*центр по горинт */
+    flex-direction: column; /*друг над другом черточки белые*/
+    gap: 5px;
+
+    /*фильтр */
+}
+
+.mnu-button__menu span {
+    width: 22px;
+    height: 2px;
+    background: #fff;
+    display: block;
+    border-radius:var(--radius);
+    transition: var(--transition-mnu);
+}
+
+
+ /*Анимация как две палочки съезжаются в Бутер-Меню */
+.mnu-button__menu:hover span:nth-child(1){
+    transform:  translateY(1px);
+}
+
+.mnu-button__menu:hover span:nth-child(2){
+    transform:  translateY(-1px);
+}
+
+.mnu-button__menu::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-2);
+    border-radius: var(--radius);
+    z-index: -1;
+    opacity: .3;
+    transition: var(--transition);
+    
+}
+
+
+.mnu-button__menu:hover::after{
+    opacity: 1;
+
+}
+
+
+
+/*Крестик закрытие меню*/
+/*Анимация когда класс active в JS  */
+.mnu-button__menu.active span:first-child{
+    transform: translateY(3px) rotate(45deg);
+
+}
+.mnu-button__menu.active span:last-child{
+    transform: translateY(-4px) rotate(-45deg);
+}
+
+
+/* Оверлейд */
+.main-menu-background {
+    position: fixed;
+    inset: 0;
+    background-color:rgba(24,2,36,.85) ;
+    display: flex;
+    z-index: 5;
+    pointer-events: auto; /* чтобы через Оверлейд  не просвечивался меню */
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+
+}
+
+.main-menu-background.active {
+    opacity: 1;
+    visibility: visible;
+}
+
