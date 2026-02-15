@@ -6,6 +6,9 @@
         <title>Main_str</title>
         <link rel="stylesheet" href="/web_sport/CSS/Main.css">
         <link rel="stylesheet" href="CSS/animations.css">
+
+        <script src="/vendor/gsap/gsap.min.js" defer></script>
+        <script src="/vendor/gsap/ScrollTrigger.min.js" defer></script>
         <script src="/web_sport/JS/app.js" defer></script>
     </head>
 
@@ -21,8 +24,6 @@
                     </a>
                 </div>
 
-
-
                 <!-- Меню  -->
                 <div class="top-line__center">
                     <nav class="top-mnu">
@@ -33,8 +34,6 @@
                         </ul>
                     </nav>
                 </div>
-
-
 
 
                 <!-- Меню - кнопка -->
@@ -62,7 +61,123 @@
                 </div>
             </div>
         </header>
-       
+
+
+    <div class="container">
+        <section class="accordion">
+
+            <!--1 -->
+            <div class="accordion__col active" data-parallax-wrapper  >
+                <div class="accordion__bg">
+                    <img src="/public/images/ready/1.jpg" alt="alt" data-parallax-target >
+                </div>
+                <div class="accordion__start">Спорт</div>
+                <div class="accordion__content">
+                    <div class="accordion__header">
+                        <h2>Спорт</h2>
+                    </div>
+                    <div class="accordion__description">
+                        Мы вдохновляем на спортивные достижения, предлагая инновационное снаряжение, технологии и поддержку для активного образа жизни. Тренируйтесь и побеждайте с экипировкой, которая помогает раскрыть ваш потенциал на каждом этапе спортивного пути.
+                    </div>
+                </div >
+            </div>
+
+            <!--2 -->
+            <div class="accordion__col  "  data-parallax-wrapper>
+                <div class="accordion__bg">
+                    <img src="/public/images/ready/2.jpg" alt="alt" data-parallax-target >
+                </div>
+                <div class="accordion__start">Туризм</div>
+                <div class="accordion__content">
+                    <div class="accordion__header">
+                        <h2>Туризм</h2>
+                    </div>
+                    <div class="accordion__description">
+                        Мы создаем уникальный опыт для туристов, предлагая спортивное снаряжение, инновационные технологии и вдохновляющие маршруты. Погружайтесь в приключения с экипировкой, которая связывает вас с природой и активным отдыхом на каждом этапе.</div>
+                </div >
+
+            </div>
+
+            <!--3 -->
+            <div class="accordion__col "  data-parallax-wrapper >
+                <div class="accordion__bg">
+                    <img src="/public/images/ready/3.jpg" alt="alt" data-parallax-target>
+                </div>
+                <div class="accordion__start">Отдых</div>
+                <div class="accordion__content">
+                    <div class="accordion__header">
+                        <h2>Отдых</h2>
+                    </div>
+                    <div class="accordion__description">
+                        Мы создаем идеальный отдых, предлагая комфортное снаряжение, инновационные решения и вдохновение для путешествий. Расслабляйтесь и наслаждайтесь с экипировкой, которая делает каждый момент вашего отпуска незабываемым и ярким.
+                        </div>
+                </div >
+
+            </div>
+
+
+        </section>
+
+        <section class="gallery">
+
+           <!-- header у продукта -->
+           <div class="section-head">
+               <h2>Галлерея</h2>
+               <div class="section-head__right">
+                   <a href="#" class="btn-secondari">
+                       <span data-text="Вся галлерея" > Вся галлерея </span>
+                   </a>
+               </div>
+           </div>
+
+
+            <!-- Тело продукта -->
+            <div class="gallery__wrapper">
+
+                <!-- 1 -->
+                <div class="gallery__item">
+                    <a href="#">
+                        <div class="gallery__preview" data-parallax-wrapper="" >
+                            <img src="/public/images/ready/1.jpg" alt="Alt" data-parallax-target >
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 2 -->
+                <div class="gallery__item">
+                    <a href="#">
+                        <div class="gallery__preview" data-parallax-wrapper="" >
+                            <img src="/public/images/ready/2.jpg" alt="Alt" data-parallax-target >
+                        </div>
+                    </a>
+                </div>
+
+
+                <!-- 3 -->
+                <div class="gallery__item">
+                    <a href="#">
+                        <div class="gallery__preview" data-parallax-wrapper="" >
+                            <img src="/public/images/ready/3.jpg" alt="Alt" data-parallax-target >
+                        </div>
+                    </a>
+                </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+       </section>
+
+
+
+    </div>
 
     </body>
 </html>

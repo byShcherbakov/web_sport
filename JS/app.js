@@ -23,3 +23,32 @@ if(burgermenu ){
 }
 
 
+gsap.utils.toArray('[data-parallax-wrapper]').forEach(container =>{
+    const img = container.querySelector('[data-parallax-wrapper-target]')
+
+    const tl = gsap.timeline({
+        scrollTrigger:{
+            Trigger:container,
+            scrub:true,
+        }
+    })
+    tl.fromTo(img,{
+        yPercent: - 15,
+        ease: 'none',
+    },{
+        yPercent: 15,
+        ease: 'none',
+    } )
+})
+
+/* Анимация в главном меню */
+const accordion = document.querySelectorAll('.accordion__col')
+document.querySelectorAll('.accordion__col').forEach(col =>{
+    col.addEventListener('mouseenter',()=>{
+        accordion.forEach(c =>{
+            c.classList.remove('active')
+            col.classList.add('active')
+        })
+    })
+})
+
